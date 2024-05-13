@@ -207,7 +207,8 @@ class NotificationFragment : BaseFragment() {
 
         rv_order_list.adapter = NotificationAdapter(mContext, notification_list_temp, object : NotificationAdapter.OnClickListener {
             override fun onNotificationClick(adapterPosition: Int) {
-                if(notification_list?.get(adapterPosition)!!.notificationmessage!!.contains("Please take action on it")){
+                //if(notification_list?.get(adapterPosition)!!.notificationmessage!!.contains("Please take action on it")){
+                if(notification_list_temp?.get(adapterPosition)!!.notificationmessage!!.contains("Please take action on it")){
                     if (!Pref.isAddAttendence)
                         (mContext as DashboardActivity).checkToShowAddAttendanceAlert()
                     else{

@@ -169,11 +169,22 @@ class ShopDtlsMarketAssistFrag : BaseFragment(), View.OnClickListener, OnMapRead
 
         mapDirectionCV.setOnClickListener(this)
 
-        Glide.with(mContext)
-            .load(R.drawable.icon_pointer_gif)
-            .into(mapDirectionPointer)
 
-        mapFragment = childFragmentManager.findFragmentById(R.id.map_frag_shop_dtls_ma) as SupportMapFragment
+        Handler().postDelayed(Runnable {
+            try {
+                Glide.with(mContext)
+                    .load(R.drawable.icon_pointer_gif)
+                    .into(mapDirectionPointer)
+            }catch (ex:Exception){
+                ex.printStackTrace()
+            }
+        }, 1000)
+
+
+        Handler().postDelayed(Runnable {
+            mapFragment = childFragmentManager.findFragmentById(R.id.map_frag_shop_dtls_ma) as SupportMapFragment
+        }, 2000)
+
 
         loadProgress()
         Handler().postDelayed(Runnable {
